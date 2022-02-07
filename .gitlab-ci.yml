@@ -2,6 +2,7 @@ image: node:alpine
 stages:
   - install
   - test
+  - build
   - deploy-staging
   - deploy-production
 
@@ -32,11 +33,26 @@ functional-test:
     paths:
       - node_modules
     policy: pull
+build-job:
+  stage: build
+  script:
+    - npm run build
+  cache: 
+    paths:
+      - node_modules
+    policy: pull
+  artifacts:
+    name: 'front-build'
+    expire_in: 1 week
+    paths:
+      - front/build
 deploy-staging:
   stage: deploy-staging
-  script: 
+  script:
+    - ls -la 
     - echo 'deploy staging'
 deploy-production:
   stage: deploy-production
   script: 
+    - ls -la
     - echo 'deploy production'
