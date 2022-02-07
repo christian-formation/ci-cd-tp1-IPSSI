@@ -1,0 +1,31 @@
+stages:
+  - install
+  - test
+  - deploy-staging
+  - deploy-production
+
+install-app:
+  stage: install
+  script: 
+    - cd front
+    - npm install
+unit-test:
+  stage: test
+  script: 
+    - cd front
+    - npm install
+    - npm run test-unit
+functional-test:
+  stage: test
+  script: 
+    - cd front
+    - npm install
+    - npm run test-functional
+deploy-staging:
+  stage: deploy-staging
+  script: 
+    - 'echo deploy staging'
+deploy-production:
+  stage: deploy-production
+  script: 
+    - 'echo deploy production'
