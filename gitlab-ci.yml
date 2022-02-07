@@ -24,8 +24,8 @@ functional-test:
 deploy-staging:
   stage: deploy-staging
   script: 
-    - 'echo deploy staging'
+    - echo 'deploy staging'
 deploy-production:
   stage: deploy-production
   script: 
-    - 'echo deploy production'
+    - echo 'deploy production'
