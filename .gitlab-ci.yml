@@ -36,6 +36,7 @@ functional-test:
 build-job:
   stage: build
   script:
+    - cd front
     - npm run build
   cache: 
     paths:
@@ -49,10 +50,12 @@ build-job:
 deploy-staging:
   stage: deploy-staging
   script:
+    - cd front
     - ls -la 
     - echo 'deploy staging'
 deploy-production:
   stage: deploy-production
   script: 
+    - cd front
     - ls -la
     - echo 'deploy production'
