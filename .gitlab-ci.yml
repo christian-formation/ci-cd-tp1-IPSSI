@@ -10,18 +10,28 @@ install-app:
   script: 
     - cd front
     - npm install
+  cache:
+    paths: 
+      - node_modules
+    policy: push
 unit-test:
   stage: test
   script: 
     - cd front
-    - npm install
     - npm run test-unit
+  cache: 
+    paths:
+      - node_modules
+    policy: pull
 functional-test:
   stage: test
   script: 
     - cd front
-    - npm install
     - npm run test-functional
+  cache: 
+    paths:
+      - node_modules
+    policy: pull
 deploy-staging:
   stage: deploy-staging
   script: 
