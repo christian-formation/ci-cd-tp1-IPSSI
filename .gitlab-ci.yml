@@ -15,10 +15,13 @@ install-app:
   script: 
     #- cd front
     - npm install
+    - echo $Prenom
+    - echo $Nom_de_famille
   cache:
     paths: 
       - node_modules
     policy: push
+    
 unit-test:
   stage: test
   script: 
